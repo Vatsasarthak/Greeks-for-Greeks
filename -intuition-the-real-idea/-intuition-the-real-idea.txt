@@ -1,0 +1,28 @@
+class Solution {
+    public static int countSetBits(int n) {
+        if (n == 0) return 0;
+
+        int x = largestPowerOf2(n);
+
+        // bits till 2^x - 1
+        int bitsTill2x = x * (1 << (x - 1));
+
+        // msb bits from 2^x to n
+        int msbBits = n - (1 << x) + 1;
+
+        // remaining numbers
+        int rest = n - (1 << x);
+
+        return bitsTill2x + msbBits + countSetBits(rest);
+    }
+
+    static int largestPowerOf2(int n) {
+        int x = 0;
+
+        while ((1 << (x + 1)) <= n) {
+            x++;
+        }
+
+        return x;
+    }
+}
