@@ -28,7 +28,7 @@ Each folder contains:
 - Java
 
 ## 🔗 GeeksforGeeks Profile
-[Visit My GFG Profile](https://www.geeksforgeeks.org/user/)
+[Visit My GFG Profile]([https://www.geeksforgeeks.org/user/](https://www.geeksforgeeks.org/profile/vatsasarthak?tab=activity))
 
 ## 👨‍💻 Author
 **Sarthak Vatsa**  
