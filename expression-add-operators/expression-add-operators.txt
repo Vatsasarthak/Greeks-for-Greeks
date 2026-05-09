@@ -1,38 +1,39 @@
-}
-        list2 = new ArrayList<>(list4);
-        list4 = new ArrayList<>();
-        copy(list,list3,hs);
-        list = new ArrayList<>(list3);
-        list3 = new ArrayList<>();
-        hs = new HashSet<>();
+class Solution {
+    int count = 0;
+    public ArrayList<String> findExpr(String s, int target) {
+        // code here
+        int idx = s.length()-1;
+        ArrayList<String> list = new ArrayList<>();
         
-        // Solving (+)
-        for(int i = 0; i < list2.size(); i++){
-            if(list2.get(i) != '+'){
-                list4.add(list2.get(i));
-                continue;
-            }
-            if(i+1 < list.size()) { 
-                if(list.get(i+1) + list.get(i) == 0){
-                    hs.add(i+1);
-                }
-                list.set(i+1,list.get(i+1)+list.get(i));
-                list.set(i,0L);
-            }
-        }
-        list2 = new ArrayList<>(list4);
-        list4 = new ArrayList<>();
-        copy(list,list3,hs);
-        list = new ArrayList<>(list3);
-        list3 = new ArrayList<>();
+        findExpr2(s,list,idx,target);
         
-        long tar2 = 0L;
-        if(list.size() > 0) tar2 = list.get(list.size()-1);
-        return (int)tar2 == tar;
+        return list;
     }
-    private void copy(ArrayList<Long> list, ArrayList<Long> list2, HashSet<Integer> hs){
-        for(int i = 0; i < list.size(); i++){
-            if(list.get(i) != 0 || hs.contains(i)) list2.add(list.get(i));
+    private void findExpr2(String s, ArrayList<String> list, int idx, int target){
+        if(idx <= 0){
+            if(solve(s,target)){
+                list.add(s);
+            }
+            return;
         }
+        findExpr2(s,list,idx-1,target);
+        
+        StringBuilder sb = new StringBuilder(s);
+        if(idx >= 0 && idx < s.length()) sb.insert(idx,'*');
+        findExpr2(sb.toString(),list,idx-1,target);
+        
+        sb = new StringBuilder(s);
+        if(idx >= 0 && idx < s.length()) sb.insert(idx,'-');
+        findExpr2(sb.toString(),list,idx-1,target);
+        
+        sb = new StringBuilder(s);
+        if(idx >= 0 && idx < s.length()) sb.insert(idx,'+');
+        findExpr2(sb.toString(),list,idx-1,target);
     }
-}
+    private boolean solve(String s, int tar){
+        int n = s.length();
+        ArrayList<Long> list = new ArrayList<>();
+        ArrayList<Character> list2 = new ArrayList<>();
+        ArrayList<Long> list3 = new ArrayList<>();
+        ArrayList<Character> list4 = new ArrayList<>();
+        HashSet<Integer> hs = new HashSet<>();
