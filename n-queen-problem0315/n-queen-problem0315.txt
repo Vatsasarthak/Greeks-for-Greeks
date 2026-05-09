@@ -1,0 +1,38 @@
+if(board[i][j] != 0){
+                    res.add(board[i][j]); 
+                    break;
+                }
+            }
+        }
+        return res;
+    }
+    public void solve(int col, int[][] board, ArrayList<ArrayList<Integer>> ans, int n, int[] upDia, int[] loDia, int[] leftRow){
+        if(col == n){
+            ans.add(constructList(board,n));
+            return;
+        }
+        for(int row = 0; row<n; row++){
+            if(leftRow[row]==0 && loDia[row+col]==0 && upDia[n-1+col-row]==0){
+                leftRow[row] = 1;
+                loDia[row+col] = 1;
+                upDia[n-1+col-row] = 1;
+                board[row][col] = col+1;
+                solve(col+1,board,ans,n,upDia,loDia,leftRow);
+                board[row][col] = 0;
+                leftRow[row] = 0;
+                loDia[row+col] = 0;
+                upDia[n-1+col-row] = 0;
+            }
+        }
+    }
+    public ArrayList<ArrayList<Integer>> nQueen(int n) {
+        ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
+        int[][] board = new int[n][n];
+        int[] upDia = new  int[2*n-1];
+        int[] loDia = new int[2*n-1];
+        int[] leftRow = new int[n]; 
+
+        solve(0, board, ans, n, upDia, loDia, leftRow);
+        return ans;
+    }
+}
