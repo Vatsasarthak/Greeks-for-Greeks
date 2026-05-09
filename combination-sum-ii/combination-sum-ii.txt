@@ -1,0 +1,25 @@
+class Solution {
+  public:
+   void f(int ind,vector<int> &A,vector<vector<int>> &ans,vector<int> &ds,int t){
+        if(t==0){
+            ans.push_back(ds);
+            return;
+        }
+        for(int i=ind;i<A.size();i++){
+            if(i>ind && A[i]==A[i-1]) continue;
+            if(A[i]>t) break;
+            ds.push_back(A[i]);
+            f(i+1,A,ans,ds,t-A[i]);
+            ds.pop_back();
+        }
+        
+    }
+  
+    vector<vector<int>> combinationSum2(vector<int> &A, int t) {
+        vector<vector<int>> ans;
+        vector<int> ds;
+        sort(A.begin(),A.end());
+        f(0,A,ans,ds,t);
+        return ans;
+    }
+};
