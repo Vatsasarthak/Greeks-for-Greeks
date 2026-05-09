@@ -45,13 +45,6 @@ Topic Tags
 Related Articles
 Report An Issue
 If you are facing any issue on this page. Please let us know.
-Output Window
-Compilation Results
-Custom Input
-Request Queued
-
-Ready for evaluation 
-
 Java (21)
 Start Timer
 1
