@@ -1,0 +1,38 @@
+if(original==newColor){
+            return image;
+        }
+        
+        int[][] dist = { {0, 1}, {1, 0}, {0, -1}, {-1, 0} };
+        
+        boolean[][] vis = new boolean[image.length][image[0].length];
+        
+        Queue<int[]> q=new LinkedList<>();
+        q.offer(new int[]{sr,sc});
+        vis[sr][sc]=true;
+        
+        while(!q.isEmpty()){
+            int[] curr=q.poll();
+            
+            int x=curr[0];
+            int y=curr[1];
+            
+            image[x][y]=newColor;
+            
+            for(int[] p:dist){
+                int new_x=x+p[0];
+                int new_y=y+p[1];
+                
+                if(new_x>=0 && new_x<image.length && new_y>=0 && new_y<image[0].length 
+                &&  !vis[new_x][new_y] && image[new_x][new_y]==original){
+                    
+                    q.offer(new int[]{new_x,new_y});
+                    vis[new_x][new_y]=true;
+                    
+                }
+                
+            }
+        }
+        
+        return image;
+    }
+}
