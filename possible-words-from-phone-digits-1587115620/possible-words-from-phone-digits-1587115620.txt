@@ -1,0 +1,38 @@
+}
+        if(map.get(arr[start]) == "") {
+            backTrack(res, map, arr, temp, start+1, n-1);
+            return;
+        }
+       
+        for(int j=0; j<map.get(arr[start]).length(); j++){
+            temp.append(map.get(arr[start]).charAt(j));
+            backTrack(res, map, arr, temp, start+1, n);
+            temp.deleteCharAt(temp.length()-1);
+            
+        }
+        
+    }
+    public ArrayList<String> possibleWords(int[] arr) {
+        // code here
+        ArrayList<String> res = new ArrayList<>();
+        HashMap<Integer, String>map = new HashMap<>();
+        
+        if(arr.length == 0) return res;
+        if(arr.length ==1 && (arr[0] == 1 || arr[0] == 0)) return res;
+        
+        map.put(2, "abc");
+        map.put(3, "def");
+        map.put(4, "ghi");
+        map.put(5, "jkl");
+        map.put(6, "mno");
+        map.put(7, "pqrs");
+        map.put(8, "tuv");
+        map.put(9, "wxyz");
+        map.put(1, "");
+        map.put(0, "");
+        
+        backTrack(res, map, arr, new StringBuilder(), 0, arr.length);
+        return res;
+        
+    }
+}
