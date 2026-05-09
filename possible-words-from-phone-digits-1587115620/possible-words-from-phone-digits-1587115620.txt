@@ -1,4 +1,10 @@
-}
+class Solution {
+    static void backTrack(ArrayList<String>res, HashMap<Integer, String> map, int[] arr, StringBuilder temp, int start, int n){
+        // base
+        if(temp.length() == n){
+            res.add(temp.toString());
+            return;
+        }
         if(map.get(arr[start]) == "") {
             backTrack(res, map, arr, temp, start+1, n-1);
             return;
@@ -30,9 +36,3 @@
         map.put(9, "wxyz");
         map.put(1, "");
         map.put(0, "");
-        
-        backTrack(res, map, arr, new StringBuilder(), 0, arr.length);
-        return res;
-        
-    }
-}
