@@ -1,4 +1,8 @@
-if(original==newColor){
+class Solution {
+    public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
+        // code here
+        int original=image[sr][sc];
+        if(original==newColor){
             return image;
         }
         
@@ -32,7 +36,3 @@ if(original==newColor){
                 
             }
         }
-        
-        return image;
-    }
-}
