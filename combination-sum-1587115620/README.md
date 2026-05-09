@@ -1,6 +1,7 @@
-<h2>Combination Sum 1587115620</h2>
-<img src='https://img.shields.io/badge/Difficulty-Medium-yellow' alt='Difficulty: Medium' />
+<h2><a href="https://www.geeksforgeeks.org/problems/combination-sum-1587115620/1">Target Sum Combinations</a></h2>
+<h3>Difficulty: Medium</h3>
 <hr>
+<div class="problem-statement">
 <p><span style="font-size: 18px;">Given an array <strong>arr[]</strong> of distinct integers and a <strong>target</strong>, your task is to find all <strong>unique </strong>combinations in the array where the sum is equal to target. The same number may be chosen from the array <strong>any </strong>number of times to make target.</span></p>
 <p><span style="font-size: 18px;"><strong>Note:</strong> You can return your answer in <strong>any </strong>order, but the driver code will print the combinations in sorted order only.</span></p>
 <p><strong><span style="font-size: 18px;">Examples:</span></strong></p>
@@ -9,3 +10,9 @@
 <pre><strong><span style="font-size: 18px;">Input: </span></strong><span style="font-size: 18px;">arr[] = [2, 4], target = 1
 <strong>Output: </strong>[]<br><strong>Explanation:</strong> No combination exits whose sum is equals to target.</span></pre>
 <p><span style="font-size: 18px;"><strong style="font-size: 18px;">Constraints:</strong><br><span style="font-size: 18px;">1&nbsp;<span style="font-size: 18.6667px;">≤</span>&nbsp;arr.size()&nbsp;<span style="font-size: 18.6667px;">≤ </span>30</span><br><span style="font-size: 18px;">1 <span style="font-size: 18.6667px;">≤ </span>arr[i]&nbsp;<span style="font-size: 18.6667px;">≤ </span>40</span><br><span style="font-size: 18px;">1 <span style="font-size: 18.6667px;">≤ </span>target&nbsp;<span style="font-size: 18.6667px;">≤ </span>40</span></span></p>
+</div>
+
+---
+<p align="center">
+  <a href="https://www.geeksforgeeks.org/problems/combination-sum-1587115620/1">View Problem on GeeksforGeeks</a>
+</p>
