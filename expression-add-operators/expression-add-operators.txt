@@ -1,0 +1,38 @@
+}
+        list2 = new ArrayList<>(list4);
+        list4 = new ArrayList<>();
+        copy(list,list3,hs);
+        list = new ArrayList<>(list3);
+        list3 = new ArrayList<>();
+        hs = new HashSet<>();
+        
+        // Solving (+)
+        for(int i = 0; i < list2.size(); i++){
+            if(list2.get(i) != '+'){
+                list4.add(list2.get(i));
+                continue;
+            }
+            if(i+1 < list.size()) { 
+                if(list.get(i+1) + list.get(i) == 0){
+                    hs.add(i+1);
+                }
+                list.set(i+1,list.get(i+1)+list.get(i));
+                list.set(i,0L);
+            }
+        }
+        list2 = new ArrayList<>(list4);
+        list4 = new ArrayList<>();
+        copy(list,list3,hs);
+        list = new ArrayList<>(list3);
+        list3 = new ArrayList<>();
+        
+        long tar2 = 0L;
+        if(list.size() > 0) tar2 = list.get(list.size()-1);
+        return (int)tar2 == tar;
+    }
+    private void copy(ArrayList<Long> list, ArrayList<Long> list2, HashSet<Integer> hs){
+        for(int i = 0; i < list.size(); i++){
+            if(list.get(i) != 0 || hs.contains(i)) list2.add(list.get(i));
+        }
+    }
+}
