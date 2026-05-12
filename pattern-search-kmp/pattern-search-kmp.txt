@@ -1,0 +1,38 @@
+lps[i]=0;
+                    i++;
+                }
+                else{
+                    len=lps[len-1];
+                }
+            }
+        }
+    
+    }
+    
+    //Function to check if the pattern exists in the string or not.
+    boolean KMPSearch(String pat, String txt){
+        int n=txt.length(),m=pat.length();
+        int[] lps=new int[m];
+        computeLPSArray(pat,m,lps);
+        int i=0,j=0;
+        while(i<n){
+            if(txt.charAt(i)==pat.charAt(j)){
+                i++;
+                j++;
+            }
+            if(j==m){
+                j=lps[j-1];
+                return true;
+            }
+            else if(i<n && pat.charAt(j)!=txt.charAt(i)){
+                if(j==0){
+                    i++;
+                }
+                else{
+                    j=lps[j-1];
+                }
+            }
+        }
+        return false;
+    }
+}
