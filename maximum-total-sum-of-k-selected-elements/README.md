@@ -3,8 +3,8 @@
 Platform: LeetCode  
 Difficulty: Medium  
 Language: Choose a type  
-Problem Link: https://leetcode.com/problems/maximum-total-sum-of-k-selected-elements/submissions/2052826338/  
-Submitted At: 2026-07-01
+Problem Link: https://leetcode.com/problems/maximum-total-sum-of-k-selected-elements/submissions/2055587111/  
+Submitted At: 2026-07-04
 
 ---
 
